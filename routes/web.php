@@ -22,4 +22,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('equipment', [EquipmentController::class, 'index'])->name('equipment.index');
-Route::get('fault/{id}', [FaultController::class, 'show'])->name('faults.show');
+
+Route::get('faults/{id}', [FaultController::class, 'show'])->name('faults.show');
+Route::get('faults/create/{id}', [FaultController::class, 'create'])->name('faults.create');
+Route::post('faults/store', [FaultController::class, 'store'])->name('faults.store');

@@ -11,6 +11,10 @@ class Equipment extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    public $guarded = false;
+    protected $fillable = [
+        '*'
+    ];
 
     public function faults()
     {

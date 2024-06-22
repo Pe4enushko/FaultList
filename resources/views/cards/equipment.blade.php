@@ -7,7 +7,7 @@
             </span>
         </div>
     </div>
-    <a class="border-accent btn bg-accent text-light mx-2 mt-2 ">Добавить неисправность</a>
+    <a href="{{route('faults.create',$item->id)}}" class="border-accent btn bg-accent text-light mx-2 mt-2">Добавить неисправность</a>
     <div class="p-3"> 
         <hr>
         <p class="accent">Описание:</p>
