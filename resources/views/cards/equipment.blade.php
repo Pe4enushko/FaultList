@@ -5,7 +5,7 @@
          @csrf
         
             <img    class="img-thumbnail w-100 m-2" style="object-fit:cover" 
-                    src="{{ $item->image_path }}" alt="Тут могла быть картинка с оборудованием">
+                    src="{{ $item->image_path }}" alt="{{ $item->title }}">
 
             <input class="form-control m-2" name="image" type="file">
             <input class="form-control m-2" type="submit">
@@ -13,7 +13,7 @@
 
 
 
-        <a class="col-6" href="{{route('equipment.show', $item->id)}}">
+        <a class="col-6" style="backdrop-filter: brightness(75%); border-radius: 10px" href="{{route('equipment.show', $item->id)}}">
         <div class="d-inline-block float-right p-3"> 
                 <span class="text-center text-light p-2">
                     {{ $item->title }}

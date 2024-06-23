@@ -25,7 +25,7 @@
     <div class="p-3">
         <hr>
         <h2 class="accent">Ошибки:</h2>
-        <div class="faults">
+        <div class="faults-big">
             @foreach($item->faults()->get() as $fault)
                 <div> 
                     <a href="{{route('faults.show', $fault->id)}}">{{$fault->title}}</a>

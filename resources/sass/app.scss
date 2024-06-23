@@ -25,6 +25,11 @@
     scrollbar-color: $accent;
     height: 70px;
 }
+
+.faults-big {
+    overflow-y: auto;
+}
+
 .card {
     max-height: 686px;
     height: 650px;
