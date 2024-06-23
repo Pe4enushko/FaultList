@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Fault;
 use App\Models\Equipment;
+use App\Models\FaultImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FaultController extends Controller
 {
@@ -33,12 +35,23 @@ class FaultController extends Controller
 
     public function store(Request $request)
     {
-
         $data = $request->validate(['equipment_Id' => 'required',
                                     'title' => 'required',
                                     'description' => 'required']);
-        
+        $index = 1;
+
         $id = Fault::insertGetId($data);
+
+        while($request->file('image'.$index))
+        {
+            $file = $request->file('image'.$index);
+            Storage::disk('public_images')->put('', $file);
+
+            FaultImage::insert(["fault_id" => $id, "image_path" => "/images".$file->hashName()]);
+
+            $index++;
+        }
+
         return $this->show($id);
     }
 
