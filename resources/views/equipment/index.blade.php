@@ -9,7 +9,7 @@
         text-decoration: none;
     }
 </style>
-    <div class="card-holder d-flex flex-wrap">
+    <div class="card-holder d-flex flex-wrap justify-content-evenly">
     @foreach ($data as $item)
         <div class="mx-0 my-2 py-2">
             @include('cards.equipment')
