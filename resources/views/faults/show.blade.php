@@ -13,9 +13,12 @@
     </p class="text-justify">
         {{ $fault->description }}
     </p>
+    
+    <div class="w-100 d-flex justify-content-end my-3">
+        <a class="btn accent" href="{{route('faults.delete', $fault->id)}}">Удалить</a>
     </div>
-    <form method="GET" action="{{route('faults.delete', $fault->id)}}">
-        <input type="submit" class="btn accent" value="Удалить">
-    </form>
+    
+    </div>
+    
     @endsection
 </div>

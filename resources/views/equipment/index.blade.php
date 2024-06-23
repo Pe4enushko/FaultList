@@ -11,7 +11,7 @@
 </style>
     <div class="d-flex flex-sm-wrap">
     @foreach ($data as $item)
-        <div class="w-25 m-0">
+        <div class="w-25 mx-0 my-2 py-2">
             @include('cards.equipment')
         </div>
     @endforeach

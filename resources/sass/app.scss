@@ -18,3 +18,18 @@
 .border-accent {
     border-color: $accent;
 }
+
+.faults {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-color: $accent;
+    height: 70px;
+}
+.card {
+    max-height: 686px;
+    height: 650px;
+}
+
+.card-img-form img {
+    max-height: 150px;
+}

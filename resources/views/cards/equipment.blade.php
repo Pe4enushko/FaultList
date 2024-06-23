@@ -36,10 +36,12 @@
     <div class="mx-2 mb-3">
         <hr>
         <p class="accent">Ошибки:</p>
-        @foreach($item->faults()->get() as $fault)
-            <div> 
-                <a href="{{route('faults.show', $fault->id)}}">{{$fault->title}}</a>
-            </div>
-        @endforeach
+        <div class="faults">
+            @foreach($item->faults()->get() as $fault)
+                <div> 
+                    <a href="{{route('faults.show', $fault->id)}}">{{$fault->title}}</a>
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>
