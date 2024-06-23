@@ -23,14 +23,14 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     scrollbar-color: $accent;
-    height: 70px;
+    height: 80px;
 }
 
 .faults-big {
     overflow-y: auto;
 }
 
-.card {
+.equ-card {
     max-height: 686px;
     height: 650px;
 }

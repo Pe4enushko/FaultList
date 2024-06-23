@@ -1,10 +1,10 @@
-<div class="w-100 card bg-light" style="width:30%; min-width:480px">
+<div class="w-100 card equ-card bg-light" style="width:30%; min-width:480px">
     <div class="mx-0 row p-2 bg-primary">
-        <form class="card-img-form float-left col-6"
+        <form class="card-img-form float-left col-6 text-center"
          method="POST" action="{!!route('equipment.image.update', $item->id)!!}" enctype="multipart/form-data">
          @csrf
         
-            <img    class="img-thumbnail w-100 m-2" style="object-fit:cover" 
+            <img    class="img-thumbnail" style="object-fit:contain;" 
                     src="{{ $item->image_path }}" alt="{{ $item->title }}">
 
             <input class="form-control m-2" name="image" type="file">

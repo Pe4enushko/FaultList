@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Equipment;
+use Illuminate\Support\Facades\Storage;
 
 class EquipmentController extends Controller
 {
@@ -33,5 +34,27 @@ class EquipmentController extends Controller
             return redirect('/')->with(['status' => 'Такого оборудования не знаю']);
 
         return redirect('/');
+    }
+
+    public function create() 
+    {
+        return view('equipment.create');
+    }
+
+    public function store(Request $request) 
+    {
+        $data = $request->validate(['title' => 'required', 'description' => 'required']);
+        
+        $file = $request->file('image');
+        if (Storage::disk('public_images')->put('', $file) && isset($file))
+        {
+            $path = '/images/'.$file->hashName();
+            
+            $data['image_path'] = $path;
+        }
+
+        $id = Equipment::insertGetId($data);
+        
+        return redirect(route('equipment.show', $id));
     }
 }

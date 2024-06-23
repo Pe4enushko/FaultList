@@ -24,6 +24,8 @@ Route::get('/', [App\Http\Controllers\EquipmentController::class, 'index'])->nam
 Route::get('equipment', [EquipmentController::class, 'index'])->name('equipment.index');
 Route::get('equipment/show/{id}', [EquipmentController::class, 'show'])->name('equipment.show');
 Route::get('equipment/delete/{id}', [EquipmentController::class, 'delete'])->name('equipment.delete');
+Route::get('equipment/create/', [EquipmentController::class, 'create'])->name('equipment.create');
+Route::post('equipment/store', [EquipmentController::class, 'store'])->name('equipment.store');
 
 Route::post('equipment/updateimage/{id}', [EquipmentImageController::class, 'update'])->name('equipment.image.update');
 

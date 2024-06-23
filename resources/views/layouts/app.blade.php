@@ -35,6 +35,12 @@
                                     <a class="nav-link" href="{{ route('equipment.index') }}">{{ __('Оборудование') }}</a>
                                 </li>
                         @endif
+                        
+                        @if (Route::has('equipment.create'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('equipment.create') }}">{{ __('Добавить оборудование') }}</a>
+                                </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
