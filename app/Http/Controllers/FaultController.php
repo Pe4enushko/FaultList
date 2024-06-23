@@ -10,10 +10,15 @@ class FaultController extends Controller
 {
     public function show(int $id)
     {
-        $data = Fault::find($id)->first();
-        $equipment = $data->equipment;
+        $data = Fault::find($id);
+        if ($data)
+        {
+            $equipment = $data->equipment;
+            return view('faults.show')->with(['fault' => $data, 'equipment' => $equipment]);
+        }
+        else
+            return redirect('/')->with(['status' => 'Не прогрузилась эта хрень']);
 
-        return view('faults.show')->with(['fault' => $data, 'equipment' => $equipment]);
     }
 
     public function create(int $equipmentId)
@@ -28,11 +33,20 @@ class FaultController extends Controller
 
     public function store(Request $request)
     {
-        $data = $this->validate($request,   ['equipmentId' => 'required',
-                                            'title' => 'required',
-                                            'description' => 'required']);
-        $item = Fault::insert($data);
+
+        $data = $request->validate(['equipment_Id' => 'required',
+                                    'title' => 'required',
+                                    'description' => 'required']);
         
-        return view('faults.show', $item->id);
+        $id = Fault::insertGetId($data);
+        return $this->show($id);
+    }
+
+    public function delete(int $id)
+    {
+        $record = Fault::find($id);
+        if ($record)
+            $record->delete();
+        return redirect('/');
     }
 }

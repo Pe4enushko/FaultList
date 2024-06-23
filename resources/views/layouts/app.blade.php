@@ -77,6 +77,9 @@
         </nav>
 
         <main class="py-4">
+            @if(isset($status))
+                <p class="warning">$status</p>
+            @endif
             @yield('content')
         </main>
     </div>

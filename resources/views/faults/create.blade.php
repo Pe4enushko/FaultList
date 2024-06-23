@@ -5,11 +5,11 @@
         <h1 class="text-center">Добавление неисправности</h1>
         <hr>
         
-        <form method="POST" action="/faults/store">
+        <form method="POST" action="{{route('faults.store')}}">
             @csrf
             <div class="form-group m-3">    
-                <label disabled class=" text-secondary" for="equipmentId" >Код оборудования</label>
-                <input disabled class="form-control text-secondary" name="equipmentId" readonly value="{{$equipment->id}}"> 
+                <label class=" text-secondary" for="equipment_Id" >Код оборудования</label>
+                <input class="form-control text-secondary" name="equipment_Id" readonly value="{{$equipment->id}}"> 
             </div>
             <div class="form-group m-3">
                 <label disabled class="" for="title" >Название неисправности</label>

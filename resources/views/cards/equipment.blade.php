@@ -1,13 +1,32 @@
-<div class="w-100 card bg-light" style="width:30%">
-    <div class="p-2 bg-primary">
-        <img class="img-thumbnail d-inline-block float-left" style="width: 150px; height: 150px;" src="images/shenck.jpg" alt="Тут могла быть картинка с оборудованием">
-        <div class="d-inline float-right"> 
-            <span class="text-center text-light p-2 align-top">
-                {{ $item->title }}
-            </span>
-        </div>
+<div class="w-100 card bg-light" style="width:30%; min-width:480px">
+    <div class="mx-0 row p-2 bg-primary">
+        <form class="card-img-form float-left col-6"
+         method="POST" action="{!!route('equipment.image.update', $item->id)!!}" enctype="multipart/form-data">
+         @csrf
+        
+            <img    class="img-thumbnail w-100 m-2" style="object-fit:cover" 
+                    src="{{ $item->image_path }}" alt="Тут могла быть картинка с оборудованием">
+
+            <input class="form-control m-2" name="image" type="file">
+            <input class="form-control m-2" type="submit">
+        </form>
+
+
+
+        <a class="col-6" href="{{route('equipment.show', $item->id)}}">
+        <div class="d-inline-block float-right p-3"> 
+                <span class="text-center text-light p-2">
+                    {{ $item->title }}
+                </span>
+            </div>
+        </a>
+
     </div>
-    <a href="{{route('faults.create',$item->id)}}" class="border-accent btn bg-accent text-light mx-2 mt-2">Добавить неисправность</a>
+
+    <a href="{{route('faults.create',$item->id)}}" class="border-accent btn bg-accent text-light mx-2 mt-2">
+        Добавить неисправность
+    </a>
+
     <div class="p-3"> 
         <hr>
         <p class="accent">Описание:</p>

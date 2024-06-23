@@ -9,28 +9,12 @@
         text-decoration: none;
     }
 </style>
-<div class="m-3 p-3 container-fluid">
-    <?php
-        $colCount = 6;    
-    ?>
+    <div class="d-flex flex-sm-wrap">
     @foreach ($data as $item)
-    <?php
-        $colCount -= 1;
-        if ($colCount == 5) 
-        {
-            echo '<div class="row">';
-        }
-    ?>
-    <div class="col-2">
-        @include('cards.equipment')
-    </div>
-    <?php
-        if ($colCount <= 0) 
-        {
-            echo '</div>';
-            $colCount = 6;
-        }
-    ?>
+        <div class="w-25 m-0">
+            @include('cards.equipment')
+        </div>
     @endforeach
+    </div>
 </div>
 @endsection
