@@ -10,15 +10,18 @@
             <a href="{{ route('equipment.show', $equipment->id) }}">{{ $equipment->title }}</a>
         </h2>
         <hr>
-    </p class="text-justify">
-        {{ $fault->description }}
-    </p>
-    
-    <div class="w-100 d-flex justify-content-end my-3">
-        <a class="btn accent" href="{{route('faults.delete', $fault->id)}}">Удалить</a>
+
+        @foreach ($fault->images as $image)
+            <img class="w-25 m-2" src="{{$image->image_path}}">
+        @endforeach
+
+        </p class="text-justify">
+            {{ $fault->description }}
+        </p>
+        
+        <div class="w-100 d-flex justify-content-end my-3">
+            <a class="btn accent" href="{{route('faults.delete', $fault->id)}}">Удалить</a>
+        </div>
     </div>
-    
-    </div>
-    
     @endsection
 </div>

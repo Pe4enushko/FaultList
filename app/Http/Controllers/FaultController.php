@@ -47,7 +47,7 @@ class FaultController extends Controller
             $file = $request->file('image'.$index);
             Storage::disk('public_images')->put('', $file);
 
-            FaultImage::insert(["fault_id" => $id, "image_path" => "/images".$file->hashName()]);
+            FaultImage::insert(["fault_id" => $id, "image_path" => "/images/".$file->hashName()]);
 
             $index++;
         }
@@ -58,6 +58,15 @@ class FaultController extends Controller
     public function delete(int $id)
     {
         $record = Fault::find($id);
+        
+        $paths = [];
+
+        foreach ($record->images as $image) {
+            array_push($paths, substr($image->image_path,8));
+        }
+
+        Storage::disk('public_images')->delete(array_values($paths));
+
         if ($record)
             $record->delete();
         return redirect('/');
