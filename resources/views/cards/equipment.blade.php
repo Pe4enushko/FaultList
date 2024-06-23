@@ -1,21 +1,21 @@
-<div class="w-100 card equ-card bg-light" style="width:30%; min-width:480px">
-    <div class="mx-0 row p-2 bg-primary">
-        <form class="card-img-form float-left col-6 text-center"
+<div class="w-100 card equ-card bg-light">
+    <div class="mx-0 d-flex p-2 bg-primary">
+        <form class="card-img-form justify-content-start p-2"
          method="POST" action="{!!route('equipment.image.update', $item->id)!!}" enctype="multipart/form-data">
          @csrf
-        
-            <img    class="img-thumbnail" style="object-fit:contain;" 
-                    src="{{ $item->image_path }}" alt="{{ $item->title }}">
 
-            <input class="form-control m-2" name="image" type="file">
-            <input class="form-control m-2" type="submit">
+         <a href="{{route('equipment.show', $item->id)}}">
+            <img    class="img-thumbnail equ-img" style="object-fit:contain;" 
+            src="{{ $item->image_path }}" alt="{{ $item->title }}">
+        </a>
+
+            <input class="form-control my-1" name="image" type="file">
+            <input class="form-control my-1" type="submit">
         </form>
 
-
-
-        <a class="col-6" style="backdrop-filter: brightness(75%); border-radius: 10px" href="{{route('equipment.show', $item->id)}}">
-        <div class="d-inline-block float-right p-3"> 
-                <span class="text-center text-light p-2">
+        <a class="equ-card-title justify-content-end p-3" href="{{route('equipment.show', $item->id)}}">
+            <div> 
+                <span class="text-light">
                     {{ $item->title }}
                 </span>
             </div>

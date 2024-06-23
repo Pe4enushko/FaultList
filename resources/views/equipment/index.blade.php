@@ -9,9 +9,9 @@
         text-decoration: none;
     }
 </style>
-    <div class="d-flex flex-sm-wrap">
+    <div class="card-holder d-flex flex-wrap">
     @foreach ($data as $item)
-        <div class="w-25 mx-0 my-2 py-2">
+        <div class="mx-0 my-2 py-2">
             @include('cards.equipment')
         </div>
     @endforeach

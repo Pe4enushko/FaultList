@@ -1,6 +1,6 @@
-<div class="w-100 card bg-light" style="width:30%; min-width:480px">
+<div class="card bg-light">
     <div style="width:100%; height: 20em; background: rgba(0,0,0,.5) url({{$item->image_path}}) no-repeat center; object-fit: fill; background-size: 100%; background-blend-mode: darken;">    
-        <h1 style="text-transform: uppercase" class="text-center text-light p-2 w-100 h-100 align-items-center justify-content-center row">
+        <h1 style="text-transform: uppercase" class="text-center text-light p-2 h-100 align-items-center justify-content-center row">
             {{ $item->title }}
         </h1>
     </div>
